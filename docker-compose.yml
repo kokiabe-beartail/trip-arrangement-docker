@@ -10,11 +10,11 @@ services:
       - "DATABASE_HOST=db"
       - "DATABASE_PORT=5432"
       - "DATABASE_USER=postgres"
-      - "DATABASE_PASSWORD=mysecretpassword1234"
+      - "DATABASE_PASSWORD=12345"
     links:
       - db
     volumes:
-      - "./app:/app" #共有フォルダの設定
+      - "./app:/app"
     stdin_open: true
 
   db:
@@ -23,6 +23,6 @@ services:
       - "5432:5432"
     environment:
       - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=mysecretpassword1234"
+      - "POSTGRES_PASSWORD=12345"
     volumes:
       - ./datavol:/var/lib/postgresql/data
