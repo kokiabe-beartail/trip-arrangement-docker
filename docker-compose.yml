@@ -5,12 +5,11 @@ services:
     build: web
     ports:
       - "3000:3000"
-    command: ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
     environment:
       - "DATABASE_HOST=db"
       - "DATABASE_PORT=5432"
       - "DATABASE_USER=postgres"
-      - "DATABASE_PASSWORD=12345"
+      - "DATABASE_PASSWORD=12345678"
     links:
       - db
     volumes:
@@ -18,11 +17,9 @@ services:
     stdin_open: true
 
   db:
-    image: postgres:10.1
+    image: postgres:11.1
     ports:
       - "5432:5432"
     environment:
       - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=12345"
-    volumes:
-      - ./datavol:/var/lib/postgresql/data
+      - "POSTGRES_PASSWORD=12345678"
