@@ -14,6 +14,7 @@ services:
       - db
     volumes:
       - "./app:/app"
+    tty: true
     stdin_open: true
 
   db:
@@ -23,3 +24,8 @@ services:
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=12345678"
+    volumes:
+      - datavol:/var/lib/postgresql/data
+
+volumes:
+  datavol:
