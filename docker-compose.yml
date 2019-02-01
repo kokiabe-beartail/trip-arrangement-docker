@@ -25,7 +25,7 @@ services:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=12345678"
     volumes:
-      - datavol:/var/lib/postgresql/data
+      - ./datavol:/var/lib/postgresql/data
 
 volumes:
   datavol:
